@@ -1,0 +1,107 @@
+<app-header [isModal]="true" [title]="cita ? 'Actualizar Cita' : 'Agregar Cita'" ></app-header>
+<ion-content> 
+  <form [formGroup]="form" class="ion-padding ion-text-center" (ngSubmit)="submit()" (keypress.enter)="submit">
+   
+      <!-- Si existe una imagen -->
+      <ion-avatar *ngIf="form.value.image">
+          <img [src]="form.value.image" />
+      </ion-avatar>
+      <!-- Si no existe imagen -->
+      <ion-icon class="image-icon" *ngIf="!form.value.image" name="document-outline"></ion-icon>
+      
+      <br>
+      <!-- Tomar / seleccionar una foto -->
+      <ion-button (click)="takeImage()" mode="ios" size="small" shape="round">
+          Tomar/Seleccionar
+      </ion-button>
+ 
+      <!-- Name -->
+      <app-custom-input 
+          autocomplete="name" 
+          icon="person-outline"
+          [control]="form.controls.name"
+          type ="text"
+          label="Nombre"
+      ></app-custom-input>
+
+      <div class="validators" *ngIf="form.controls.name.errors && form.controls.name.touched">
+          <div *ngIf="form.controls.name.errors?.['required']">Este campo es requerido</div>
+          <div *ngIf="form.controls.name.errors?.['minlength']">El nombre debe tener al menos 4 caracteres</div>
+      </div>
+
+      <!-- DNI -->
+      <app-custom-input 
+          autocomplete="off" 
+          icon="card-outline"
+          [control]="form.controls.dni"
+          type ="text"
+          label="DNI"
+      ></app-custom-input>
+
+      <div class="validators" *ngIf="form.controls.dni.errors && form.controls.dni.touched">
+          <div *ngIf="form.controls.dni.errors?.['required']">Este campo es requerido</div>
+          <div *ngIf="form.controls.dni.errors?.['minlength']">El DNI debe tener al menos 8 caracteres</div>
+      </div>
+
+        <!-- Sold Units / Telefono -->
+        <app-custom-input 
+            icon="call-outline"
+            [control]="form.controls.soldUnits"
+            type ="number"
+            label="Teléfono"
+            (ionInput)="setNumberInputs()"
+        ></app-custom-input>
+
+        <div class="validators" *ngIf="form.controls.soldUnits.errors && form.controls.soldUnits.touched">
+            <div *ngIf="form.controls.soldUnits.errors?.['required']">Este campo es requerido</div>
+            <div *ngIf="form.controls.soldUnits.errors?.['min']">El precio mínimo debe ser 0</div>
+        </div>
+
+        <!-- Fecha -->
+        <app-custom-input 
+            icon="calendar-outline"
+            [control]="form.controls.fecha"
+            type="date"
+            label="Fecha"
+            (ionInput)="setNumberInputs()"
+        ></app-custom-input>
+
+        <div class="validators" *ngIf="form.controls.fecha.errors && form.controls.fecha.touched">
+            <div *ngIf="form.controls.fecha.errors?.['required']">Este campo es requerido</div>
+            <div *ngIf="form.controls.fecha.errors?.['pastDate']">La fecha no puede ser anterior a hoy</div>
+        </div>
+         <!-- FACULTAD -->
+         <app-custom-input 
+         autocomplete="facultad" 
+         icon="person-outline"
+         [control]="form.controls.facultad"
+         type ="text"
+         label="Facultad"
+     ></app-custom-input>
+ 
+     <div class="validators" *ngIf="form.controls.name.errors && form.controls.name.touched">
+         <div *ngIf="form.controls.name.errors?.['required']">Este campo es requerido</div>
+         <div *ngIf="form.controls.name.errors?.['minlength']">debe tener facultad</div>
+     </div>
+
+        <!-- Hora -->
+        <app-custom-input 
+            icon="time-outline"
+            [control]="form.controls.hora"
+            type="time"
+            label="Hora"
+        ></app-custom-input>
+
+        <div class="validators" *ngIf="form.controls.hora.errors && form.controls.hora.touched">
+            <div *ngIf="form.controls.hora.errors?.['required']">Este campo es requerido</div>
+        </div>
+       
+       <!-- Botón de enviar -->
+       <ion-button mode="ios" class="ion-margin" type="submit" [disabled]="form.invalid">
+          {{ cita ? 'Actualizar Cita' : 'Generar Cita' }}
+          <ion-icon slot="end" color="#003B5C" name="checkmark-circle-outline"></ion-icon>
+      </ion-button>
+    </form>
+
+
+</ion-content>

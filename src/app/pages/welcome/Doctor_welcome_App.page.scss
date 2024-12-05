@@ -1,0 +1,135 @@
+.container {
+  position: relative; /* Hace que los círculos sean posicionados relativamente a este contenedor */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: linear-gradient(45deg, #f5c9c9, #f7e1e1);
+}
+
+.container::before,
+.container::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* Hace que sea un círculo */
+}
+
+.container::before {
+  background-color: #ffffff; /* Color rojo */
+  top: -50px; /* Posición en la parte superior */
+  left: -50px; /* Posición en la izquierda */
+}
+
+.container::after {
+  background-color: #ad0b0b; /* Color blanco */
+  bottom: -50px; /* Posición en la parte inferior */
+  right: -50px; /* Posición en la derecha */
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.welcome-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+  font-style: italic;
+}
+
+.university-text {
+  font-size: 18px;
+  color: #3f4042;
+  font-style: oblique;
+}
+
+.button-container {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin-bottom: 60px;
+  font-style: italic;
+}
+
+.square-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 0;
+  transition: transform 0.3s ease; /* Agrega una transición suave */
+}
+
+.square-button:hover {
+  transform: scale(1.1); /* Escala el botón un 10% más grande */
+}
+
+.rectangular-button {
+  --border-radius: 0; /* Esto hace que los bordes sean rectos */
+  width: 200px; /* Ancho del botón */
+  height: 50px; /* Altura del botón */
+  margin-top: 20px;
+}
+
+.content-background {
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+}
+
+.animated-logo {
+  animation: bounce 2s infinite;
+  width: 350px;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.rectangular-button {
+  --border-radius: 12px; /* Botones redondeados */
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  font-size: 16px; /* Aumentar el tamaño del texto */
+  --ion-icon-size: 20px; /* Aumentar el tamaño del icono */
+  transition: transform 0.3s ease; /* Animación de transición */
+}
+
+.rectangular-button:hover {
+  transform: scale(1.1); /* Aumentar tamaño al hacer hover */
+}
+
+.doctor-button {
+  --background: linear-gradient(135deg, #72c6ef, #004e92); /* Fondo degradado */
+  --color: white;
+}
+
+.student-button {
+  --background: linear-gradient(135deg, #f6d365, #fda085); /* Fondo degradado */
+  --color: white;
+}
+
+/* Específicamente para el icono dentro del botón */
+ion-icon {
+  font-size: 20px;
+  margin-right: 8px; /* Espaciado entre el icono y el texto */
+}

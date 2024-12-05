@@ -1,0 +1,71 @@
+
+
+<app-header [showMenu]="true" title="Citas Concluidas"></app-header>
+  <ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+ 
+        <ion-card class="d-flex-center ion-text-center custom-card" *ngIf="!loading && citas.length">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6" class="ion-text-center">
+
+                <h2>{{ getCitasConcluidas().length }}</h2>
+                <p>Citas Concluidas</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      
+    <!-- Lista de citas concluidas -->
+    <ion-list *ngIf="!loading">
+      <ion-item-sliding class="cita-item" *ngFor="let p of getCitasConcluidas()">
+        <ion-item>
+          <ion-avatar slot="start" *ngIf="!p.image">
+
+          </ion-avatar>
+          <ion-avatar slot="start" *ngIf="p.image">
+            <img [src]="p.image" />
+          </ion-avatar>
+          <ion-label>
+            <div class="name">{{ p.name }}</div>
+            <div class="data">
+              <strong>Nombre: </strong>{{ p.name }}<br>
+              <strong>DNI: </strong>{{ p.dni }}<br>
+              <strong>Teléfono: </strong>{{ p.soldUnits }}<br>
+              <strong>Fecha: </strong>{{ p.fecha }}<br>
+              <strong>Hora: </strong>{{ p.hora }}<br>
+              <strong>Doctor: </strong>{{ p.doctor }}<br>
+              <strong>Facultad: </strong>{{ p.facultad }}<br>
+              <strong>Correo: </strong>{{ p.email }}<br>
+              <strong>Especialidad: </strong>{{ p.tipo }}<br>
+              <strong>Estado: </strong>{{p.estado}}
+            </div>
+          </ion-label>
+          <ion-badge [color]="citaEstadoColor(p)" slot="end">{{ citaEstado(p) }}</ion-badge>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+  
+    <!-- Loading -->
+    <ion-list *ngIf="loading">
+      <ion-item-sliding class="cita-item" *ngFor="let p of [1, 1, 1, 1, 1, 1, 1]">
+        <ion-item lines="full">
+          <ion-avatar slot="start">
+            <ion-skeleton-text animated style="width: 100%; height: 100%;"></ion-skeleton-text>
+          </ion-avatar>
+          <ion-label>
+            <h2><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></h2>
+            <p><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></p>
+          </ion-label>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+  
+    <!-- Mensaje si no hay citas concluidas -->
+    <div *ngIf="!loading && !getCitasConcluidas().length" class="empty">
+      <h3>No hay Citas Concluidas</h3>
+    </div>
+  </ion-content>
+  

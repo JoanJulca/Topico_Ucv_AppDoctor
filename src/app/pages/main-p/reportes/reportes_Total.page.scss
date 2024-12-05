@@ -1,0 +1,197 @@
+ion-item {
+    background-color: #e3f2fd; /* Color de fondo celeste claro */
+    border: 1px solid #FFFFFF; /* Borde blanco */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    margin: 10px 0;
+    transition: transform 0.3s ease-in-out;
+  
+    &:hover {
+      transform: scale(1.03);
+    }
+  
+    ion-avatar {
+      margin-right: 10px;
+    }
+  
+    .name {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1976d2; /* Color azul oscuro */
+    }
+  
+    .data {
+      font-size: 14px;
+      color: #424242; /* Color gris oscuro */
+  
+      strong {
+        color: #212121; /* Color negro */
+      }
+    }
+  }
+  
+  ion-card {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    background-color: #e3f2fd; /* Color de fondo celeste claro */
+  
+    div {
+      width: 45%;
+      border: 1px solid #FFFFFF; /* Borde blanco */
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  
+      h5 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #1976d2; /* Color azul oscuro */
+      }
+  
+      p {
+        font-size: 14px;
+        color: #424242; /* Color gris oscuro */
+      }
+    }
+  }
+  .d-flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .ion-text-center {
+    text-align: center;
+  }
+  
+  .custom-card {
+    padding: 20px;
+    margin: 15px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+    ion-icon {
+      color: #3b82f6; // Customize icon color
+    }
+  
+    h2 {
+      color: #1f2937; // Customize text color
+      font-size: 24px;
+      margin: 10px 0;
+    }
+  
+    p {
+      color: #4b5563; // Customize paragraph color
+      font-size: 16px;
+    }
+  }
+  .d-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  .ion-text-center {
+  text-align: center;
+  }
+  
+  .custom-card {
+  padding: 20px;
+  margin: 15px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+  ion-icon {
+    color: #3b82f6; // Customize icon color
+  }
+  
+  h2 {
+    color: #1f2937; // Customize text color
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  p {
+    color: #4b5563; // Customize paragraph color
+    font-size: 16px;
+  }
+  }
+  
+  .gradient-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px; /* Adjust height as needed */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  pointer-events: none; /* Allows interactions with underlying content */
+  z-index: 10; /* Ensure it is above the content */
+  }
+  
+  ion-tab-bar {
+    background: #ffffff;
+    ion-tab-button {
+      &.tab-selected {
+        color: #488aff; // Color azul para el ícono seleccionado
+      }
+      ion-icon {
+        font-size: 1.875em; // Aumento del 25% sobre 1.5em
+        color: #488aff; // Color azul para todos los íconos
+      }
+      ion-label {
+        font-size: 0.8em;
+      }
+    }
+  }
+  ion-card {
+      margin: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      border-radius: 5px;
+  
+      &:hover {
+          box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+  
+      ion-card-header {
+          padding: 2px 16px;
+          background-color: #f1f1f1;
+          color: #202020;
+      }
+  
+      ion-card-content {
+          padding: 2px 16px;
+  
+          ion-item {
+              background-color: #fff;
+              border-radius: 5px;
+              margin-bottom: 10px;
+  
+              ion-avatar {
+                  margin-right: 10px;
+              }
+  
+              .name {
+                  font-size: 20px;
+                  color: #202020;
+              }
+  
+              .data {
+                  font-size: 14px;
+                  color: #606060;
+  
+                  strong {
+                      color: #202020;
+                  }
+              }
+  
+              ion-badge {
+                  font-size: 12px;
+              }
+          }
+      }
+  }
+  

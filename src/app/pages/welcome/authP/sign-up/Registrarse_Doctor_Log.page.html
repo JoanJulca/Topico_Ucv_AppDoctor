@@ -1,0 +1,77 @@
+<app-header backButton="/auth" title="Registro"></app-header>
+<ion-content>
+
+  <div class="d-flex-center">
+
+    <!-- Formulario -->
+    <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (keypress.enter)="submit">
+
+      <app-logo></app-logo>
+
+      <!-- Nombre y Correo -->
+      <div class="name-email-group">
+        <app-custom-input 
+          autocomplete="name" 
+          [control]="form.controls.name"
+          type="text"
+          label="Nombre"
+        ></app-custom-input>
+        <app-custom-input 
+          autocomplete="email" 
+          [control]="form.controls.email"
+          type="email"
+          label="Correo"
+        ></app-custom-input>
+      </div>
+
+      <div class="validators" *ngIf="form.controls.name.errors && form.controls.name.touched">
+        <div *ngIf="form.controls.name.errors?.['required']">Este campo es requerido</div>
+        <div *ngIf="form.controls.name.errors?.['minlength']">El nombre debe tener al menos 4 caracteres</div>
+      </div>
+
+      <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+        <div *ngIf="form.controls.email.errors?.['required']">El correo es requerido</div>
+        <div *ngIf="form.controls.email.errors?.['email']">Ingrese un correo válido</div>
+      </div>
+
+      <!-- Teléfono, DNI, Número Estudiantil -->
+      <ion-item>
+        <ion-label position="floating">Teléfono</ion-label>
+        <ion-input type="tel" formControlName="phone"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">DNI</ion-label>
+        <ion-input type="text" formControlName="dni"></ion-input>
+      </ion-item>
+
+      <!-- Especialidad -->
+      <ion-item>
+        <ion-label >Especialidad</ion-label>
+        <ion-select formControlName="especialidad">
+          <ion-select-option *ngFor="let esp of especialidad" [value]="esp">{{esp}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+      <!-- Contraseña -->
+      <app-custom-input 
+        [control]="form.controls.password"
+        label="Contraseña"
+      ></app-custom-input>
+
+      <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
+        <div *ngIf="form.controls.password.errors?.['required']">La contraseña es requerida</div>
+      </div>
+
+
+<!--ORIGINAL Botón de Registro -->
+<ion-button color ="danger" expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid">
+  Registrar
+</ion-button>
+
+    </form>
+
+  </div>
+
+</ion-content>
+

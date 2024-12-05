@@ -1,0 +1,56 @@
+<app-header [showMenu]="true"  title="Perfil"></app-header>
+<ion-content class="ion-padding-top ion-text-center">
+
+  <ion-avatar>
+    <img *ngIf="user()?.image" [src]="user()?.image" />
+
+  </ion-avatar>
+
+
+  <ion-button class="photo-btn()"  (click)="takeImage()"mode="ios" size="small" shape="round">
+    <h2>camara</h2>
+  </ion-button>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="user-name">{{user().name}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-item lines="none" class="user-info">
+        <ion-label>
+          <h2>Teléfono:</h2>
+          <p>{{user().phone}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="none" class="user-info">
+        <ion-label>
+          <h2>DNI:</h2>
+          <p>{{user().dni}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="none" class="user-info">
+        <ion-label>
+          <h2>Especialidad:</h2>
+          <p>{{user().especialidad}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="none" class="user-info">
+
+        <ion-label>
+          <h2>Email:</h2>
+          <p>{{user().email}}</p>
+        </ion-label>
+      </ion-item>
+      
+      <ion-item button detail routerLink="terms">
+ 
+        <ion-label>Terminos & Condiciones</ion-label>
+      </ion-item>
+      
+    </ion-card-content>
+</ion-card>
+
+</ion-content>
+
+

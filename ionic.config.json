@@ -1,0 +1,7 @@
+{
+  "name": "Medisalud_doctor",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,27 @@
+ion-header {
+    ion-toolbar {
+      background-color: #FF0000; /* Color de fondo azul oscuro de la Universidad César Vallejo */
+      border-bottom: 1px solid #050505; /* Borde blanco */
+  
+      ion-buttons {
+        ion-back-button, ion-button, ion-menu-button {
+        color: #FFFFFF; /* Color blanco para el título */  
+        }
+      }
+  
+      ion-title {
+        color: #FFFFFF; /* Color blanco para el título */
+  
+        strong {
+          font-size: 20px;
+          font-weight: bold;
+        }
+  
+        .admin {
+          font-size: 14px;
+          color: #fffcfc; /* Color blanco para el texto "ADMIN" */
+        }
+      }
+    }
+  }
+  
